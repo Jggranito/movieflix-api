@@ -134,6 +134,38 @@
                 }
             }
         },
+        "/genres": {
+            "post": {
+                "tags": [
+                    "Genres"
+                ],
+                "summary": "Cadastrar um gênero",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/GenreInput"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Gênero criado"
+                    },
+                    "400": {
+                        "description": "O nome do gênero é obrigatório"
+                    },
+                    "409": {
+                        "description": "Gênero já cadastrado"
+                    },
+                    "500": {
+                        "description": "Falha ao cadastrar o gênero"
+                    }
+                }
+            }
+        },
         "/genres/:{id}": {
             "put": {
                 "tags": [
@@ -151,7 +183,7 @@
                         }
                     }
                 ],
-                "requestBody":{
+                "requestBody": {
                     "required": true,
                     "content": {
                         "application/json": {
